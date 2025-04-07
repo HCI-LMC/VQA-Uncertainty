@@ -51,7 +51,7 @@ CUDA_VISIBLE_DEVICES=7 python eval.py --dataset cpv2 --debias learned_mixin --mo
 ```
 
 ## Key implementation codes
-The model implementation is mainly based on the loss function of calibration confidence, and the key code is [here](https://github.com/shonnon-zxs/VQA-uncertainty/blob/mms/base_model.py#L19) and [here](https://github.com/HCI-LMC/VQA-Uncertainty)([https://github.com/shonnon-zxs/VQA-uncertainty](https://github.com/HCI-LMC/VQA-Uncertainty/blob/mms/base_model.py#L86). 
+The model implementation is mainly based on the loss function of calibration confidence, and the key code is [here](https://github.com/HCI-LMC/VQA-Uncertainty/blob/main/base_model.py#L19) and [here](https://github.com/HCI-LMC/VQA-Uncertainty/blob/main/base_model.py#L86). 
 ```
 # L_tacs gt
 def compute_self_loss(logits_neg, labels):
