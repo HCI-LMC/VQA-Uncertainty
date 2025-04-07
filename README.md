@@ -17,17 +17,17 @@ Gpu Nvidia 2080ti（11G）
 
 ## Data Setup
 You can use
-```
+```bash
 bash /tools/download.sh
 ```
 to download the data <br> and the rest of the data and trained model can be obtained from [BaiduYun](https://pan.baidu.com/s/1oHdwYDSJXC1mlmvu8cQhKw)(passwd:3jot) or [MEGADrive](https://mega.nz/folder/0JBzGBZD#YGgonKMnwqmeSZmoV7hjMg) unzip feature1.zip and feature2.zip and merge them into data/rcnn_feature/ <br> use
-```
+```bash
 bash CSS+conf/tools/process.sh 
 ```
 to process the data <br>
 
 ## Training
-```
+```python
 cd CSS-VQA-master
 
 # css
@@ -46,13 +46,13 @@ CUDA_VISIBLE_DEVICES=5 python rubi_main.py --dataset cpv2 --mode updn --output [
 
 ## Testing
 
-```
+```python
 CUDA_VISIBLE_DEVICES=7 python eval.py --dataset cpv2 --debias learned_mixin --model_state []
 ```
 
 ## Key implementation codes
 The model implementation is mainly based on the loss function of calibration confidence, and the key code is [here](https://github.com/HCI-LMC/VQA-Uncertainty/blob/main/base_model.py#L19) and [here](https://github.com/HCI-LMC/VQA-Uncertainty/blob/main/base_model.py#L86). 
-```
+```python
 # L_tacs gt
 def compute_self_loss(logits_neg, labels):
     prediction_ans_k, top_ans_ind = torch.topk(F.softmax(a, dim=-1), k=1, dim=-1, sorted=False)
@@ -78,7 +78,7 @@ loss = loss + compute_self_loss(logits, labels)
 
 ## Compute EOF
 Taking Lxmert as an example, the EOF calculation method of the model is as follows:
-```
+```python
 python acc_per_type.py
 ```
 
