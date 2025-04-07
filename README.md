@@ -1,2 +1,0 @@
-# VQA-uncertainty
-1
